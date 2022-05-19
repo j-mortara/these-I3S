@@ -17,12 +17,12 @@
 \IfFileExists{rcs.sty}{%
 	\RequirePackage{rcs}%
 }{%
-\AtEndOfClass{%
-	\ClassWarningNoLine{these-ISSS}{%
-		Impossible de charger le package rcs[-latex].%
+	\AtEndOfClass{%
+		\ClassWarningNoLine{these-ISSS}{%
+			Impossible de charger le package rcs[-latex].%
+		}%
 	}%
-}%
-\def\RCS $##1: ##2 ${\expandafter\def\csname RCS##1\endcsname{##2}}%
+	\def\RCS $##1: ##2 ${\expandafter\def\csname RCS##1\endcsname{##2}}%
 }
 \RCS $Revision: 2.10 $
 \RCS $Date: 2020/06/24 14:16:37 $
@@ -238,7 +238,7 @@
 \oddsidemargin=2cm
 \evensidemargin=1cm
 
-\RequirePackage[english,french]{babel}
+\RequirePackage[french,english]{babel}
 \selectlanguage{french}
 %\NoAutoSpaceBeforeFDP
 
@@ -831,8 +831,8 @@
 			\rhead[\chapterTitle]{\thepage}
 			\else
 			\if@inAnnexe
-			\lhead[\thepage]{\textsc{Annexe}~\thechapter}
-			\rhead[\textsc{Annexe}~\thechapter]{\thepage}
+			\lhead[\thepage]{\textsc{\appendixname}~\thechapter}
+			\rhead[\textsc{\appendixname}~\thechapter]{\thepage}
 			\else
 			\if@chapterStar
 			\lhead[\thepage]{\chapterTitle}
@@ -850,12 +850,12 @@
 			\lhead[\thepage]{\thesection~--~\rightmark}
 			\if@withParts
 			\if&\partTitle&
-			\rhead[\textsc{Chapitre}\hskip1ex\thechapter~---~\chapterTitle]{\thepage}
+			\rhead[\textsc{\chaptername}\hskip1ex\thechapter~---~\chapterTitle]{\thepage}
 			\else
-			\rhead[\textsc{Partie}\hskip1ex\thepart~---~\partTitle\relax]{\thepage}
+			\rhead[\textsc{\partname}\hskip1ex\thepart~---~\partTitle\relax]{\thepage}
 			\fi
 			\else
-			\rhead[\textsc{Chapitre}\hskip1ex\thechapter~---~\chapterTitle]{\thepage}
+			\rhead[\textsc{\chaptername}\hskip1ex\thechapter~---~\chapterTitle]{\thepage}
 			\fi
 			\fi\fi\fi
 			\global\@topnum\z@
@@ -1057,7 +1057,7 @@
 				
 				\newcommand\appendix{%
 					\@inAnnexetrue
-					\addcontentsline{toc}{part}{Annexes}%
+					\addcontentsline{toc}{part}{\appendixname}%
 					\Part*{\appendixname}
 					\setcounter{chapter}{0}%
 					\setcounter{section}{0}%
@@ -1440,10 +1440,10 @@
 				\par\vspace*{-1em}
 				\begin{center}\begin{minipage}{\topicswidth}
 						\itshape}{\end{minipage}\end{center} \par\vspace*{2em}}
-			
-			
-			
-			\newcommand{\acknowledgementname}{Remerciements}
+
+
+
+			\newcommand{\acknowledgementname}{Acknowledgement}
 			\newenvironment{remerciements}{%
 				\if@openright\cleardoublepage\else\clearpage\fi
 				\chapter*{\acknowledgementname}}{\vfill\thispagestyle{empty}}
@@ -1535,11 +1535,11 @@
 				\clearpage
 				\fi
 				\pagestyle{fancy}
-				\lhead[\thepage]{\textsc{Chapitre}\hskip1ex\thechapter~---~\chapterTitle}
+				\lhead[\thepage]{\textsc{\chaptername}\hskip1ex\thechapter~---~\chapterTitle}
 				\if@withParts
-				\rhead[\textsc{Partie}\hskip1ex\thepart~---~\partTitle\relax]{\thepage}
+				\rhead[\textsc{\partname}\hskip1ex\thepart~---~\partTitle\relax]{\thepage}
 				\else
-				\rhead[\textsc{Chapitre}\hskip1ex\thechapter~---~\chapterTitle]{\thepage}
+				\rhead[\textsc{\chaptername}\hskip1ex\thechapter~---~\chapterTitle]{\thepage}
 				\fi
 				\lfoot[]{}
 				\rfoot[]{}
